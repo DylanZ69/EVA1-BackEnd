@@ -1,13 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 <body>
-    <h1>Página de Inicio</h1>
-    <p>Bienvenido a Adopta una Patita</p>
 
-    <a href="{% url 'login' %}">Ir a Login</a>
+    <a href="{% url 'login' %}">
+    <img src="{% static 'img/Login_Adopta_una_Patita.png' %}" class="login" alt="Ir al login">
+</a>
+    
 </body>
 </html>

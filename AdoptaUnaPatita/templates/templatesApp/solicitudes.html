@@ -1,13 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Solicitudes</title>
+    <img src="{% static 'img/listasolicitudes.png' %}" class="listasolicitudes" alt="listasolicitudes">
 </head>
-<body>
-    <h1>Lista de Solicitudes</h1>
-
-    {% if solicitudes %}
+<body class="bodygeneral">
+    <h1></h1>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <div class="solicitudestexto">
+        {% if solicitudes %}
         <ul>
             {% for solicitud in solicitudes %}
                 <li>
@@ -27,6 +29,9 @@
         <a href="{% url 'enviar_solicitud' %}?rol={{ rol }}">Enviar Solicitud</a>
     {% endif %}
 
-    <br><a href="{% url 'menu' %}?rol={{ rol }}">Volver al menú</a>
+    <br><a href="{% url 'menu' %}?rol={{ rol }}">
+            <img src="{% static 'img/Volver.png' %}" class="volver" alt="volver">
+        </a>
+    </div>
 </body>
 </html>
