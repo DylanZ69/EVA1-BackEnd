@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Refugios</title>
+</head>
+<body>
+    <h1>Lista de Refugios</h1>
+
+    {% if refugios %}
+        <ul>
+            {% for refugio in refugios %}
+                <li>
+                    {{ refugio.id }} - {{ refugio.nombre }} - {{ refugio.direccion }} - {{ refugio.telefono }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay refugios registrados.</p>
+    {% endif %}
+
+    {% if rol == "admin" %}
+        <a href="{% url 'agregar_refugio' %}?rol={{ rol }}">Agregar Refugio</a>
+    {% endif %}
+
+    <br><a href="{% url 'menu' %}?rol={{ rol }}">Volver al menú</a>
+</body>
+</html>

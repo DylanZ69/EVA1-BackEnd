@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal</title>
+</head>
+<body>
+    <h1>Bienvenido al Menú</h1>
+    <p>Rol actual: {{ rol }}</p>
+
+    <ul>
+        <!-- Todos pueden ver mascotas -->
+        <li><a href="{% url 'mascotas' %}?rol={{ rol }}">Ver Mascotas</a></li>
+        <li><a href="{% url 'refugios' %}?rol={{ rol }}">Ver Refugios</a></li>
+        <li><a href="{% url 'solicitudes' %}?rol={{ rol }}">Ver Solicitudes</a></li>
+
+
+        {% if rol == "admin" %}
+            <!-- Solo admin puede agregar mascotas -->
+            <li><a href="{% url 'agregar_mascota' %}?rol={{ rol }}">Agregar Mascota</a></li>
+        {% endif %}
+
+        <li><a href="{% url 'login' %}">Cerrar Sesión</a></li>
+    </ul>
+</body>
+</html>
