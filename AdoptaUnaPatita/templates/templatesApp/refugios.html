@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Refugios</title>
+    <img src="{% static 'img/listarefugios.png' %}" class="listarefugios" alt="listarefugios">
 </head>
-<body>
-    <h1>Lista de Refugios</h1>
-
+<body class="bodygeneral">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <div class="refugiostexto">
     {% if refugios %}
         <ul>
             {% for refugio in refugios %}
@@ -24,5 +25,6 @@
     {% endif %}
 
     <br><a href="{% url 'menu' %}?rol={{ rol }}">Volver al menú</a>
+    </div>
 </body>
 </html>
